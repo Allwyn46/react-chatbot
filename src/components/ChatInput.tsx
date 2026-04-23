@@ -1,17 +1,10 @@
-import React from 'react'
-import { Input } from '../components/ui/input'
-import { Button } from "@/components/ui/button"
-import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
+import { Input } from './ui/input'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const ChatInput = () => {
     return (
-        <div className='flex justify-center items-center'>
+        <div className="flex justify-center items-center">
             <Card className="w-full max-w-lg mt-3">
                 <CardHeader>
                     <CardTitle>Welcome to chatbot</CardTitle>
@@ -19,7 +12,7 @@ const ChatInput = () => {
                 <CardContent>
                     <form>
                         <div className="flex justify-between items-center gap-6">
-                            <div className="grid gap-2">
+                            <div className="grid gap-2 w-150">
                                 <Input
                                     id="chatmessage"
                                     type="text"
