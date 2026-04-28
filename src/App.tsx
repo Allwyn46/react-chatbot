@@ -7,8 +7,11 @@ function App() {
         <>
             <div className="w-screen h-screen">
                 <ChatInput />
-                <section className="flex justify-center items-center">
-                    <Usermessage message="hello chat" />
+                <section>
+                    <Usermessage message="hello chat" sender="user" />
+                    <Usermessage message="hello chat" sender="bot" />
+                    <Usermessage message="hello chat" sender="user" />
+                    <Usermessage message="hello chat" sender="bot" />
                 </section>
             </div>
         </>
