@@ -1,6 +1,6 @@
 import './App.css'
 import ChatInput from './components/ChatInput'
-import Usermessage from './components/Usermessage'
+import Chatmessages from './components/Chatmessages'
 
 function App() {
     return (
@@ -8,10 +8,7 @@ function App() {
             <div className="w-screen h-screen">
                 <ChatInput />
                 <section>
-                    <Usermessage message="hello chat" sender="user" />
-                    <Usermessage message="hello chat" sender="bot" />
-                    <Usermessage message="hello chat" sender="user" />
-                    <Usermessage message="hello chat" sender="bot" />
+                    <Chatmessages />
                 </section>
             </div>
         </>
