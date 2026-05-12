@@ -2,15 +2,16 @@ import { Input } from './ui/input'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import type { messageprops } from '@/constants/interfaces'
-import { useState } from 'react'
+import { Chatbot, chatbot } from 'supersimpledev'
 
 type Props = {
     setChatMessages: React.Dispatch<React.SetStateAction<messageprops[]>>
+    inputText: string
+    setInputText: React.Dispatch<React.SetStateAction<string>>
 }
 
-const ChatInput = ({ setChatMessages }: Props) => {
-    const [inputText, setInputText] = useState('')
-
+const ChatInput = ({ setChatMessages, inputText, setInputText }: Props) => {
+    
     // FUNCTION TO SAVE INPUT
     const saveInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputText(event.target.value)
@@ -28,6 +29,11 @@ const ChatInput = ({ setChatMessages }: Props) => {
                 id: `${crypto.randomUUID()}`,
             },
         ])
+
+        const response = Chatbot.getResponse(inputText)
+        console.log(response)
+
+        setInputText('')
     }
 
     return (

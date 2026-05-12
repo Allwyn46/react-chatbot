@@ -28,12 +28,18 @@ function App() {
         },
     ])
 
+    const [inputText, setInputText] = useState('')
+
     return (
         <>
             <div className="w-screen h-screen">
-                <ChatInput setChatMessages={setChatMessages}/>
+                <ChatInput
+                    setChatMessages={setChatMessages}
+                    inputText={inputText}
+                    setInputText={setInputText}
+                />
                 <section>
-                    <Chatmessages chatMessages={chatMessages}/>
+                    <Chatmessages chatMessages={chatMessages} />
                 </section>
             </div>
         </>
