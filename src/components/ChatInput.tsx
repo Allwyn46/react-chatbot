@@ -2,19 +2,28 @@ import { Input } from './ui/input'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import type { messageprops } from '@/constants/interfaces'
+import { useState } from 'react'
 
 type Props = {
     setChatMessages: React.Dispatch<React.SetStateAction<messageprops[]>>
 }
 
 const ChatInput = ({ setChatMessages }: Props) => {
+    const [inputText, setInputText] = useState('')
+
+    // FUNCTION TO SAVE INPUT
+    const saveInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setInputText(event.target.value)
+    }
+
+    // FUNCTION TO SEND MESSAGE
     const sendMessage = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        
+
         setChatMessages((prevMessages) => [
             ...prevMessages,
             {
-                message: 'hello from the other side',
+                message: inputText,
                 sender: 'user',
                 id: `${crypto.randomUUID()}`,
             },
@@ -35,6 +44,8 @@ const ChatInput = ({ setChatMessages }: Props) => {
                                     id="chatmessage"
                                     type="text"
                                     placeholder="Enter your message"
+                                    value={inputText}
+                                    onChange={saveInput}
                                     required
                                 />
                             </div>
