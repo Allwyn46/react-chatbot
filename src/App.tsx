@@ -6,28 +6,7 @@ import type { messageprops } from './constants/interfaces'
 import { Chatbot } from 'supersimpledev'
 
 function App() {
-    const [chatMessages, setChatMessages] = useState<messageprops[]>([
-        {
-            message: 'hello chat',
-            sender: 'user',
-            id: `${crypto.randomUUID()}`,
-        },
-        {
-            message: 'hello sir',
-            sender: 'bot',
-            id: `${crypto.randomUUID()}`,
-        },
-        {
-            message: 'how"s the weather today?',
-            sender: 'user',
-            id: `${crypto.randomUUID()}`,
-        },
-        {
-            message: 'Its cloudy sir',
-            sender: 'bot',
-            id: `${crypto.randomUUID()}`,
-        },
-    ])
+    const [chatMessages, setChatMessages] = useState<messageprops[]>([])
 
     const [inputText, setInputText] = useState('')
 
@@ -70,8 +49,10 @@ function App() {
                     setInputText={setInputText}
                     sendMessage={sendMessage}
                 />
-                <section>
-                    <Chatmessages chatMessages={chatMessages} />
+                <section className="flex justify-center items-center">
+                    <div className="mt-4 w-200">
+                        <Chatmessages chatMessages={chatMessages} />
+                    </div>
                 </section>
             </div>
         </>
